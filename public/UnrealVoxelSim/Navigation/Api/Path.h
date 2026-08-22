@@ -7,6 +7,7 @@ namespace UnrealVoxelSim::Navigation::Api
 struct Path final
 {
     std::uint64_t EnvironmentRevision{};
+    std::uint64_t ValidationToken{};
     std::vector<Waypoint> Waypoints;
 };
 } // namespace UnrealVoxelSim::Navigation::Api

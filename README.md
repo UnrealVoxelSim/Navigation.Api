@@ -59,10 +59,11 @@ The planner owns asynchronous request state and progresses it only in `Advance`.
 caller's perspective. `State` exposes `Pending`, `Complete`, `Unreachable`, or `Cancelled`; `ReadPath` returns a shared,
 immutable path only after completion.
 
-Each `Path` carries the environment revision against which it was built. Its waypoints use deterministic continuous
-coordinates and label the movement needed to enter them with a `MovementPrimitiveId`. V1 defines `Traverse`, `Rise`, and
-`Drop`; future followers and movement implementations may add primitives without placing voxel concepts in task APIs.
-A follower must reject or replan a path when its revision no longer matches `CurrentEnvironmentRevision`.
+Each `Path` carries the environment revision against which it was built and an opaque planner validation token. Its
+waypoints use deterministic continuous coordinates and label the movement needed to enter them with a
+`MovementPrimitiveId`. V1 defines `Traverse`, `Rise`, and `Drop`; future followers and movement implementations may add
+primitives without placing voxel concepts in task APIs. A follower asks `IsPathCurrent` before using a path; planners
+may retain paths across unrelated environment revisions and invalidate only paths whose dependencies changed.
 
 `IPlanner` is an implementation-facing service, not the primary task/AI command surface. Most gameplay code should use
 `ICommandSink` and `IExecutionReader` so planners and followers remain independently replaceable.

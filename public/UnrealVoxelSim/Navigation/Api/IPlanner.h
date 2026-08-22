@@ -16,6 +16,7 @@ class IPlanner
     virtual void Cancel(RequestId request) noexcept = 0;
     virtual void Advance(Simulation::Api::StepContext context) = 0;
     [[nodiscard]] virtual std::uint64_t CurrentEnvironmentRevision() const noexcept = 0;
+    [[nodiscard]] virtual bool IsPathCurrent(const Path &path) const noexcept = 0;
     [[nodiscard]] virtual PlanState State(RequestId request) const noexcept = 0;
     [[nodiscard]] virtual std::shared_ptr<const Path> ReadPath(RequestId request) const noexcept = 0;
 };
