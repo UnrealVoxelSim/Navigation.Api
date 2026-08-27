@@ -7,12 +7,12 @@ class MovementPrimitiveId final
 {
   public:
     constexpr MovementPrimitiveId() noexcept = default;
-    explicit constexpr MovementPrimitiveId(const std::uint16_t value) noexcept : Value_(value) {}
-    [[nodiscard]] constexpr bool IsValid() const noexcept { return Value_ != 0; }
-    [[nodiscard]] constexpr std::uint16_t Value() const noexcept { return Value_; }
+    explicit constexpr MovementPrimitiveId(const std::uint16_t value) noexcept : m_Value(value) {}
+    [[nodiscard]] constexpr bool IsValid() const noexcept { return m_Value != 0; }
+    [[nodiscard]] constexpr std::uint16_t Value() const noexcept { return m_Value; }
     auto operator<=>(const MovementPrimitiveId &) const = default;
   private:
-    std::uint16_t Value_{};
+    std::uint16_t m_Value{};
 };
 namespace StandardPrimitives
 {
