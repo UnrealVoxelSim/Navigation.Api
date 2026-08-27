@@ -1,3 +1,5 @@
+// TODO remove proxy header
+
 #pragma once
 #include "UnrealVoxelSim/Navigation/Api/ICommandProcessor.h"
 #include "UnrealVoxelSim/Navigation/Api/ICommandSink.h"

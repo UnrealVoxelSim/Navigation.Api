@@ -8,13 +8,11 @@
 
 namespace UnrealVoxelSim::Navigation::Api
 {
-
-struct ReachabilityQuery final
-{
-    ReachabilityRequestId Request;
-    Movement::Api::ProfileId Profile;
-    Movement::Api::Position Start;
-    std::vector<Movement::Api::Position> Destinations;
-};
-
+	struct ReachabilityQuery final
+	{
+		ReachabilityRequestId Request;
+		Movement::Api::ProfileId Profile;
+		Movement::Api::Position Start;
+		std::vector<Movement::Api::Position> Destinations;
+	};
 } // namespace UnrealVoxelSim::Navigation::Api

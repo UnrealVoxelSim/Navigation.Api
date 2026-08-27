@@ -8,21 +8,24 @@
 
 namespace UnrealVoxelSim::Navigation::Api
 {
+	struct ReachabilityResult final
+	{
+		ReachabilityRequestId Request;
+		std::uint64_t EnvironmentRevision{};
+		std::vector<ReachabilityState> Destinations;
 
-struct ReachabilityResult final
-{
-    ReachabilityRequestId Request;
-    std::uint64_t EnvironmentRevision{};
-    std::vector<ReachabilityState> Destinations;
+		[[nodiscard]] bool IsComplete() const noexcept;
+	};
 
-    [[nodiscard]] bool IsComplete() const noexcept;
-};
-
-inline bool ReachabilityResult::IsComplete() const noexcept
-{
-    for (const auto state : Destinations)
-        if (state == ReachabilityState::Pending) return false;
-    return true;
-}
-
+	inline bool ReachabilityResult::IsComplete() const noexcept
+	{
+		for (const auto state : Destinations)
+		{
+			if (state == ReachabilityState::Pending)
+			{
+				return false;
+			}
+		}
+		return true;
+	}
 } // namespace UnrealVoxelSim::Navigation::Api
