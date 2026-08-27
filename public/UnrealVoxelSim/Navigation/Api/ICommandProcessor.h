@@ -25,4 +25,4 @@ namespace UnrealVoxelSim::Navigation::Api
 		virtual ~ICommandProcessor() = default;
 		virtual void ProcessCommands(Simulation::Api::StepContext context) = 0;
 	};
-} // namespace UnrealVoxelSim::Navigation::Api
+}

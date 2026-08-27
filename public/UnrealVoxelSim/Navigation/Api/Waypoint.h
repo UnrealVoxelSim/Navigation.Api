@@ -9,4 +9,4 @@ namespace UnrealVoxelSim::Navigation::Api
 		Movement::Api::Position Location;
 		MovementPrimitiveId Primitive;
 	};
-} // namespace UnrealVoxelSim::Navigation::Api
+}

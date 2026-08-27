@@ -8,4 +8,4 @@ namespace UnrealVoxelSim::Navigation::Api
 		Unreachable,
 		Cancelled
 	};
-} // namespace UnrealVoxelSim::Navigation::Api
+}

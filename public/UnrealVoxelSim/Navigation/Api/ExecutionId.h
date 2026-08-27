@@ -20,4 +20,4 @@ namespace UnrealVoxelSim::Navigation::Api
 	private:
 		std::uint64_t m_Value{};
 	};
-} // namespace UnrealVoxelSim::Navigation::Api
+}

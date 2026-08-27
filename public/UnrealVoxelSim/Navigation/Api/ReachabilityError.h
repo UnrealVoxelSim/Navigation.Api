@@ -9,4 +9,4 @@ namespace UnrealVoxelSim::Navigation::Api
 		EmptyDestinations,
 		DuplicateRequest,
 	};
-} // namespace UnrealVoxelSim::Navigation::Api
+}

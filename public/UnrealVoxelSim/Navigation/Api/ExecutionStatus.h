@@ -10,4 +10,4 @@ namespace UnrealVoxelSim::Navigation::Api
 		ExecutionId Execution;
 		ExecutionState State;
 	};
-} // namespace UnrealVoxelSim::Navigation::Api
+}

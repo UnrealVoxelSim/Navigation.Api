@@ -24,4 +24,4 @@ namespace UnrealVoxelSim::Navigation::Api
 		virtual ~IFollowingUpdater() = default;
 		virtual void UpdateFollowing(Simulation::Api::StepContext context) = 0;
 	};
-} // namespace UnrealVoxelSim::Navigation::Api
+}

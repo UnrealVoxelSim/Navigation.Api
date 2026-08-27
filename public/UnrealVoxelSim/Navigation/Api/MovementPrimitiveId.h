@@ -28,4 +28,4 @@ namespace UnrealVoxelSim::Navigation::Api
 		inline constexpr MovementPrimitiveId Rise{2};
 		inline constexpr MovementPrimitiveId Drop{3};
 	}
-} // namespace UnrealVoxelSim::Navigation::Api
+}

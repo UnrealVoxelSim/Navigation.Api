@@ -28,4 +28,4 @@ namespace UnrealVoxelSim::Navigation::Api
 	private:
 		std::variant<Start, Cancel> m_Value;
 	};
-} // namespace UnrealVoxelSim::Navigation::Api
+}

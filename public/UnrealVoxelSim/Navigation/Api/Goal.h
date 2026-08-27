@@ -9,4 +9,4 @@ namespace UnrealVoxelSim::Navigation::Api
 		Movement::Api::Position Location;
 		Movement::Api::Scalar ArrivalRadius{Movement::Api::Scalar::FromRaw(Movement::Api::Scalar::OneRaw / 4)};
 	};
-} // namespace UnrealVoxelSim::Navigation::Api
+}

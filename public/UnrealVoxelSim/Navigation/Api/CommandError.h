@@ -13,4 +13,4 @@ namespace UnrealVoxelSim::Navigation::Api
 		CommandErrorType Error;
 		std::size_t CommandIndex{};
 	};
-} // namespace UnrealVoxelSim::Navigation::Api
+}

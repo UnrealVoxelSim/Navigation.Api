@@ -7,4 +7,4 @@ namespace UnrealVoxelSim::Navigation::Api
 		UnknownProfile,
 		DuplicateRequest
 	};
-} // namespace UnrealVoxelSim::Navigation::Api
+}

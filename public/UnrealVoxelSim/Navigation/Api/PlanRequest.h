@@ -12,4 +12,4 @@ namespace UnrealVoxelSim::Navigation::Api
 		Movement::Api::Position Start;
 		Movement::Api::Position Goal;
 	};
-} // namespace UnrealVoxelSim::Navigation::Api
+}

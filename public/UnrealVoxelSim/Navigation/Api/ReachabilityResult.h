@@ -28,4 +28,4 @@ namespace UnrealVoxelSim::Navigation::Api
 		}
 		return true;
 	}
-} // namespace UnrealVoxelSim::Navigation::Api
+}

@@ -11,4 +11,4 @@ namespace UnrealVoxelSim::Navigation::Api
 		std::uint64_t ValidationToken{};
 		std::vector<Waypoint> Waypoints;
 	};
-} // namespace UnrealVoxelSim::Navigation::Api
+}

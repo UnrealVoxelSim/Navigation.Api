@@ -18,4 +18,4 @@ namespace UnrealVoxelSim::Navigation::Api
 		[[nodiscard]] virtual std::shared_ptr<const ReachabilityResult> ReadReachability(
 			ReachabilityRequestId request) const noexcept = 0;
 	};
-} // namespace UnrealVoxelSim::Navigation::Api
+}

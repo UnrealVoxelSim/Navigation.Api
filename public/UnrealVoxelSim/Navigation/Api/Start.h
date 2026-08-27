@@ -20,4 +20,4 @@ namespace UnrealVoxelSim::Navigation::Api
 
 		Goal Destination;
 	};
-} // namespace UnrealVoxelSim::Navigation::Api
+}

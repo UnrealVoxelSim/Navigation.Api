@@ -15,4 +15,4 @@ namespace UnrealVoxelSim::Navigation::Api
 		Movement::Api::Position Start;
 		std::vector<Movement::Api::Position> Destinations;
 	};
-} // namespace UnrealVoxelSim::Navigation::Api
+}

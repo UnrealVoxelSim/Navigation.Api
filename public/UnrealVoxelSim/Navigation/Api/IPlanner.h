@@ -38,4 +38,4 @@ namespace UnrealVoxelSim::Navigation::Api
 		// TODO Make it GetPath()
 		[[nodiscard]] virtual std::shared_ptr<const Path> ReadPath(RequestId request) const noexcept = 0;
 	};
-} // namespace UnrealVoxelSim::Navigation::Api
+}

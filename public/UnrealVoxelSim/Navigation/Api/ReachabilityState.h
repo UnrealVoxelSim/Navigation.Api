@@ -11,4 +11,4 @@ namespace UnrealVoxelSim::Navigation::Api
 		InvalidGoal,
 		Cancelled,
 	};
-} // namespace UnrealVoxelSim::Navigation::Api
+}

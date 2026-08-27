@@ -13,4 +13,4 @@ namespace UnrealVoxelSim::Navigation::Api
 		Ecs::Api::EntityId Entity;
 		ExecutionId Execution;
 	};
-} // namespace UnrealVoxelSim::Navigation::Api
+}

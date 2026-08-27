@@ -16,4 +16,4 @@ namespace UnrealVoxelSim::Navigation::Api
 		virtual ~ICommandSink() = default;
 		[[nodiscard]] virtual std::expected<void, CommandError> Submit(std::span<const Command> commands) = 0;
 	};
-} // namespace UnrealVoxelSim::Navigation::Api
+}

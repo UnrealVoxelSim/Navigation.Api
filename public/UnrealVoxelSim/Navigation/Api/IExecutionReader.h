@@ -12,4 +12,4 @@ namespace UnrealVoxelSim::Navigation::Api
 		[[nodiscard]] virtual std::optional<ExecutionStatus> ReadExecution(Ecs::Api::EntityId entity) const noexcept =
 		0;
 	};
-} // namespace UnrealVoxelSim::Navigation::Api
+}
