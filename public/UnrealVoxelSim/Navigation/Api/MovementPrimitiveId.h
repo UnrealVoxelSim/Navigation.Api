@@ -4,6 +4,7 @@
 
 namespace UnrealVoxelSim::Navigation::Api
 {
+	// TODO Probably should be just PrimitiveId, implying <Navigation>PrimitiveId.
 	class MovementPrimitiveId final
 	{
 	public:

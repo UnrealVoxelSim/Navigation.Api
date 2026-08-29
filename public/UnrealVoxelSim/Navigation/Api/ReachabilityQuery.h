@@ -10,6 +10,7 @@ namespace UnrealVoxelSim::Navigation::Api
 {
 	struct ReachabilityQuery final
 	{
+		// TODO See PlanRequest::Request comment
 		ReachabilityRequestId Request;
 		Movement::Api::ProfileId Profile;
 		Spatial::Api::Position Start;

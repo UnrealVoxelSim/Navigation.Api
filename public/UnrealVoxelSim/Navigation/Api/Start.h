@@ -8,11 +8,14 @@ namespace UnrealVoxelSim::Navigation::Api
 {
 	/*
 	 * TODO This command struct exposes implementation details (ExecutionId) to other domains.
+	 * Also, its name is not descriptive. Start what?
 	 */
 	struct Start final
 	{
 		// TODO The purpose of this field is unclear. Considering potential cross-domain leak associated with CommandStamp, this concept needs a discussion. I suggest completely removing the Stamp and accept a cross-cutting concept that domains execute cross-domain requests on next simulation tick.
 		Simulation::Api::CommandStamp Stamp;
+
+		// TODO We should attach ECS-component to an entity to signalize path following request.
 		Ecs::Api::EntityId Entity;
 
 		// TODO Other domains should not be concerned with manual execution ordering, unless this truly provides them some capability.
