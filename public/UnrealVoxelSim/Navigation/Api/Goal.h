@@ -1,12 +1,13 @@
 #pragma once
-#include "UnrealVoxelSim/Movement/Api/Position.h"
-#include "UnrealVoxelSim/Movement/Api/Scalar.h"
+#include "UnrealVoxelSim/Math/Api/FixedPointScalar.h"
+#include "UnrealVoxelSim/Spatial/Api/Position.h"
 
 namespace UnrealVoxelSim::Navigation::Api
 {
 	struct Goal final
 	{
-		Movement::Api::Position Location;
-		Movement::Api::Scalar ArrivalRadius{Movement::Api::Scalar::FromRaw(Movement::Api::Scalar::OneRaw / 4)};
+		Spatial::Api::Position Location;
+		Math::Api::FixedPointScalar ArrivalRadius{
+			Math::Api::FixedPointScalar::FromRaw(Math::Api::FixedPointScalar::OneRaw / 4)};
 	};
 }

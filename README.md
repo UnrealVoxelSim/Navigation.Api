@@ -9,7 +9,7 @@ meaning to this domain.
 
 | Consumer or provider | Contracts | Purpose |
 | --- | --- | --- |
-| Task executors, AI, and input adapters | `ICommandSink`, `IExecutionReader` | Queue movement-to-goal executions and observe their lifecycle. |
+| Task executors, AI, and input adapters | `ICommandSink`, `NavigationExecutionComponent` | Queue movement-to-goal executions and observe their lifecycle. |
 | Composition root | `ICommandProcessor`, `IFollowingUpdater`, `IPlanner::Advance` | Place navigation phases explicitly in the simulation tick. |
 | Following implementations | `IPlanner`, `Path`, `Waypoint` | Request paths, observe completion, and turn immutable paths into movement intents. |
 | AI and task-planning services | `IReachability` | Test one source against many destinations without constructing a path for every destination. |
@@ -30,10 +30,10 @@ Navigation is intentionally asynchronous and advances only at composition-define
    starts a profile-specific `PlanRequest` from the entity's authoritative movement position.
 4. The composition root advances topology and then calls `IPlanner::Advance`. A request may remain `Pending` for a
    deterministic number of ticks while shared work budgets are consumed.
-5. `IFollowingUpdater::UpdateFollowing` consumes a completed immutable path and submits transient intents through the
-   movement API. Movement remains authoritative for continuous position, velocity, gravity, and collision.
-6. Callers observe `Planning`, `Following`, `Replanning`, `Arrived`, `Unreachable`, or `Cancelled` through
-   `IExecutionReader`. They do not poll planner internals.
+5. `IFollowingUpdater::UpdateFollowing` consumes a completed immutable path and writes the entity's tick-stamped
+   `MovementInputComponent`. Movement remains authoritative for continuous position, velocity, gravity, and collision.
+6. ECS-aware callers with read authority observe `Planning`, `Following`, `Replanning`, `Arrived`, `Unreachable`, or
+   `Cancelled` through `NavigationExecutionComponent`. They do not poll planner internals.
 
 The composition root owns this order; neither the fixed-step simulation engine nor the API embeds a system registry.
 
@@ -48,9 +48,9 @@ coordinates and must be positive.
 with a `CommandError` and command index. Stamps provide deterministic total ordering through target tick, command source,
 and source-local sequence; duplicates are rejected. Callers must submit before the target tick is processed.
 
-`IExecutionReader::ReadExecution` returns the current execution generation and state for an entity. Terminal states are
-observable results, not task semantics: an upper-level task decides whether to retry, choose another destination, or
-fail its own order.
+`NavigationExecutionComponent` contains the current execution generation and state. It has one structural writer: the
+navigation-following system. Terminal states are observable results, not task semantics: an upper-level pawn behavior
+decides whether to retry, choose another destination, or fail its own order.
 
 ## Planning and paths
 
@@ -66,7 +66,8 @@ primitives without placing voxel concepts in task APIs. A follower asks `IsPathC
 may retain paths across unrelated environment revisions and invalidate only paths whose dependencies changed.
 
 `IPlanner` is an implementation-facing service, not the primary task/AI command surface. Most gameplay code should use
-`ICommandSink` and `IExecutionReader` so planners and followers remain independently replaceable.
+`ICommandSink` and read-only access to `NavigationExecutionComponent` so planners and followers remain independently
+replaceable.
 
 ## Reachability
 
@@ -89,4 +90,5 @@ must not retain writable implementation storage. Concrete implementations docume
 and lifetime requirements.
 
 Voxel payloads and material policy remain behind `UnrealVoxelSim.Navigation.Voxel.Api`. This API never depends on solid,
-liquid, terrain, renderer, Qt, Unreal Engine, or ECS-registry implementation types.
+liquid, terrain, renderer, Qt, Unreal Engine, or an ECS-registry implementation type; it exposes only the stable public
+component contract.

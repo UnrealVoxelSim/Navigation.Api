@@ -1,7 +1,7 @@
 #pragma once
-#include "UnrealVoxelSim/Movement/Api/Position.h"
 #include "UnrealVoxelSim/Movement/Api/ProfileId.h"
 #include "UnrealVoxelSim/Navigation/Api/RequestId.h"
+#include "UnrealVoxelSim/Spatial/Api/Position.h"
 
 namespace UnrealVoxelSim::Navigation::Api
 {
@@ -9,7 +9,7 @@ namespace UnrealVoxelSim::Navigation::Api
 	{
 		RequestId Request;
 		Movement::Api::ProfileId Profile;
-		Movement::Api::Position Start;
-		Movement::Api::Position Goal;
+		Spatial::Api::Position Start;
+		Spatial::Api::Position Goal;
 	};
 }

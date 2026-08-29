@@ -1,12 +1,12 @@
 #pragma once
-#include "UnrealVoxelSim/Movement/Api/Position.h"
 #include "UnrealVoxelSim/Navigation/Api/MovementPrimitiveId.h"
+#include "UnrealVoxelSim/Spatial/Api/Position.h"
 
 namespace UnrealVoxelSim::Navigation::Api
 {
 	struct Waypoint final
 	{
-		Movement::Api::Position Location;
+		Spatial::Api::Position Location;
 		MovementPrimitiveId Primitive;
 	};
 }
