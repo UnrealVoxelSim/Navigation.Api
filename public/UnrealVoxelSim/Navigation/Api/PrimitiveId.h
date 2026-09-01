@@ -10,6 +10,7 @@ namespace UnrealVoxelSim::Navigation::Api
 		Traverse = 1,
 		Rise = 2,
 		Drop = 3,
+		Swim = 4,
 	};
 
 	namespace StandardPrimitives
@@ -17,5 +18,6 @@ namespace UnrealVoxelSim::Navigation::Api
 		inline constexpr PrimitiveId Traverse = PrimitiveId::Traverse;
 		inline constexpr PrimitiveId Rise = PrimitiveId::Rise;
 		inline constexpr PrimitiveId Drop = PrimitiveId::Drop;
+		inline constexpr PrimitiveId Swim = PrimitiveId::Swim;
 	}
 }
