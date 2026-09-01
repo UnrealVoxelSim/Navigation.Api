@@ -3,6 +3,7 @@ target_include_directories(${PROJECT_NAME} INTERFACE "$<BUILD_INTERFACE:${PROJEC
 target_link_libraries(
     ${PROJECT_NAME}
     INTERFACE
+        UnrealVoxelSim.Ecs.Api
         UnrealVoxelSim.Math.Api
         UnrealVoxelSim.Movement.Api
         UnrealVoxelSim.Spatial.Api

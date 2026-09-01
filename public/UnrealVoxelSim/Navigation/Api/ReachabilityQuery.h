@@ -10,7 +10,7 @@ namespace UnrealVoxelSim::Navigation::Api
 {
 	struct ReachabilityQuery final
 	{
-		// TODO See PlanRequest::Request comment
+		// Reachability has its own identifier type because its lifecycle is independent of path planning.
 		ReachabilityRequestId Request;
 		Movement::Api::ProfileId Profile;
 		Spatial::Api::Position Start;

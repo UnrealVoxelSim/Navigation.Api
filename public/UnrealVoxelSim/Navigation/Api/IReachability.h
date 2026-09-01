@@ -13,9 +13,10 @@ namespace UnrealVoxelSim::Navigation::Api
 	{
 	public:
 		virtual ~IReachability() = default;
-		[[nodiscard]] virtual std::expected<void, ReachabilityError> BeginReachability(ReachabilityQuery query) = 0;
-		virtual void CancelReachability(ReachabilityRequestId request) noexcept = 0;
-		[[nodiscard]] virtual std::shared_ptr<const ReachabilityResult> ReadReachability(
+		// TODO ReachabilityQuery forces caller to generate ReachabilityRequestId. IReachability should be responsible for this, as IPlanner is responsible for PlanRequestId.
+		[[nodiscard]] virtual std::expected<void, ReachabilityError> BeginReachabilityQuery(ReachabilityQuery query) = 0;
+		virtual void CancelReachabilityQuery(ReachabilityRequestId request) noexcept = 0;
+		[[nodiscard]] virtual std::shared_ptr<const ReachabilityResult> GetReachabilityQueryResult(
 			ReachabilityRequestId request) const noexcept = 0;
 	};
 }
